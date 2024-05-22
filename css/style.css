@@ -1,0 +1,641 @@
+/* root é um seletor mais profundo */
+:root {
+    --brand: #B91F33;
+    --primary: #101417;
+    --contrast: #E0E34C;
+    --white: #FFFFFF;
+    --black: #000000;
+    --gray-medium: #666666;
+    --gray-light: #E1E1E1;
+    --border: 3px;
+}
+
+/* navegação em âncora suave (fluida) */
+html{
+    scroll-behavior: smooth;
+}
+
+/* # (jogo da velha) usado para formatar o elemento ID */
+#nossa-academia{
+    scroll-margin-top: 150px;
+}
+
+#nossos-planos{
+    scroll-margin-top: 100px;
+}
+
+#fale-conosco{
+    scroll-margin-top: 100px;
+}
+
+* {
+    font-family: 'Teko', sans-serif;
+    text-transform: uppercase;
+    /*altera o texto para maiúsculo*/
+}
+
+body {
+    margin: 0;
+    background-color: var(--primary);
+    overflow-x: hidden; /*para esconder a barra de rolagem horizontal em qq resolução*/  
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+h2 {
+    color: var(--white);
+    font-size: 40px;
+    line-height: 100%; /*altura da linha igual a largura do texto*/
+}
+
+/* h3, span {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 700;
+} */
+
+p {
+    color: var(--gray-light);
+    font-size: 18px;
+    line-height: 120%;
+}
+
+ul {
+    color: var(--gray-light);
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    /* as imagens são tratadas como texto, que por padrão tem display em linha e espaço abaixo, ao alterar para block, o espaço some! */
+}
+
+/* POP-UP */
+.bg-popup{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-popup-close{
+    display: none;
+}
+
+/* MÉTODO PROF */
+.popup{
+    position: relative;
+}
+
+.popup img{
+    max-width: 100%;
+}
+
+.close{
+    color: var(--white);
+    font-size: 30px;  
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: -30px;
+    
+}
+/* MEU MÉTODO */
+/* .fechar{
+    color: var(--white);
+    font-size: 30px;  
+    display: flex;
+    justify-content: end;    
+    margin-right: 35px;
+    cursor: pointer;
+} */
+
+/* POP-UP FIM */
+
+/*todos os containers do site*/
+.container {
+    /* para centralizar o container */
+    width: 100%;
+      /*para atender a responsividade*/
+    max-width: 1170px;  /*largura máxima (1140 + 30 dos paddings)*/
+    margin-left: auto; 
+    margin-right: auto;
+    /* margin: 0 auto; */
+    /* "zero" para a vertical (top/bottom) e "auto" para a horizontal (left/right)*/
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: var(--black);
+    width: 100%;
+    /* por padrão a largura é definida em 100%*/
+    height: auto;
+    /* por padrão a altura é definida em auto*/
+    padding-top: 16px;
+    /* espaço interno acima */
+    padding-bottom: 16px;
+    /* espaço interno acima */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /*quanto maior o nº, maior é a prioridade da ordem do position*/
+
+    /* aula 05 */
+    backdrop-filter: blur(15px); /*quanto maior, mais opaco fica*/
+    
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu a {
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+    /*mesmo que BOLD (negrito, mas tem variação) ->> se atentar para a descrição da fonteb obtida no google*/
+    margin-left: 110px;
+}
+
+.menu a:hover {
+    color: var(--brand);
+}
+
+/* herosection - start */
+.herosection {
+    /* height: 550px; */
+    height: calc(100vh - 100px);
+    /* vh = view height - ocupará a tela no total, mas descontará os 100px do menu */
+    background-size: cover;
+    /* a img cobrirá toda a área*/
+    background-position: top center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.bg-1{
+    background-image: url(../img/background\ 1.jpg);
+    /* ../ é para voltar na pasta anterior*/
+}
+
+.bg-2{
+    background-image: url(../img/background\ 2.jpg);
+}
+
+.bg-3{
+    background-image: url(../img/background\ 3.jpg);
+}
+
+/* px link para alterar tamnaho e cor dos bulltes dos sliders */
+
+.herosection h1 {
+    color: var(--gray-light);
+    font-size: 96px;
+    line-height: 90%;
+}
+
+.herosection p {
+    font-size: 24px;
+}
+
+.btn {
+    color: var(--white);
+    background-color: var(--brand);
+    font-size: 18px;
+
+    /* padding: 13px, 60px, 9px, 60px; deu erro pois está com vírgulas*/
+    /* padding-top: 13px;
+    padding-right: 60px;
+    padding-bottom: 9px;
+    padding-left: 60px; */
+
+    padding: 9px 60px 5px 60px;
+    /*top right bottom left (sentido horário)*/
+    border-radius: var(--border);
+    display: inline-block;
+    transition: 0.2s;
+    border: 2px solid transparent;
+    /* define o tempo sobre do efeito do hover. só funciona */
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    /* padrão = 1.0; aumenta o tamanho do botão */
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px var(--brand) solid;
+}
+
+.btn-block {
+    display: block;
+}
+
+/* herosection - end */
+
+/* nossa-academia - start */
+
+.nossa-academia {
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+/* nossa-academia - end */
+
+/* faça parte - start */
+.faca-parte {
+    background-color: var(--gray-light);
+}
+
+/* .faca-parte .content {
+    width: 850px;
+} */
+
+.faca-parte .content {
+    width: calc(100% - 200px);
+    max-width: 850px;
+}
+
+.faca-parte h2 {
+    color: var(--primary);
+}
+
+.faca-parte p {
+    color: var(--gray-medium);
+}
+
+.faca-parte .container {
+    position: relative;
+    /*servir de referência para o position:absolute*/
+    padding-top: 37px;
+    padding-bottom: 37px;
+}
+
+.faca-parte .image {
+    /*Posição em relação ao elemento PAI (desde que ele tenha position), 
+    caso contrário será em relação ao body*/
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* faça parte - end */
+
+/* nossos planos - start */
+.nossos-planos {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.flex-cards {
+    display: flex;
+    column-gap: 24px;
+
+}
+
+.card {
+    border: 1px var(--gray-light) solid;
+    /*a ordem não importa!*/
+    /* border-width: 1px;
+    border-color: var(--gray-light);
+    border-style: solid; */
+    border-radius: var(--border);
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.30);
+}
+
+.card-destaque>span {
+    color: var(--contrast) !important;
+    /* para forçar a formatação*/
+}
+
+/* seletorpai > seletor filho {} todos os descendentes diretos do pai */
+.card h3,
+.card>span {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.card ul {
+    color: var(--gray-light);
+    text-align: left;
+    font-size: 18px;
+    padding: 0;
+    list-style-position: inside;
+}
+
+.card .btn {
+    display: block;
+}
+
+.card-destaque {
+    border-color: var(--contrast);
+    position: relative;
+    /* serve de referencia para o position: absolute do selo*/
+}
+
+@keyframes rotate {
+
+    /* 0%{
+        background-color: var(--contrast);
+    }
+
+    50%{
+        background-color: var(--brand);
+    }
+
+    100%{
+        background-color: var(--contrast);
+    } */
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(45deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+.selo {
+    animation: rotate 5s infinite linear;
+    width: 70px;
+    height: 70px;
+    background-color: var(--contrast);
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 90%;
+}
+
+/* @keyframes fade {
+    background-color: 
+} */
+/*
+
+/* nossos planos - end */
+
+/* fale-conosco -start*/
+.fale-conosco {
+    display: flex;
+    column-gap: 24px;
+}
+
+.contato input,
+.contato textarea {
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--border);
+    padding-left: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: var(--gray-light);
+    box-sizing: border-box;
+    /* mantém as dimensões (widht/height) da div, mesmo com o padding e o border, sem precisar usar a função calc() */
+}
+
+.contato textarea {
+    height: 140px;
+    padding-top: 10px;
+}
+
+.contato button{
+    padding-top: 10px;
+}
+/* fale-conosco -end*/
+
+/* AULA 06 */
+/* footer - start*/
+.footer {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: block;
+   }
+
+.footer .content {
+    background-color: var(--brand);   
+    padding: 16px 192px;
+    margin: 0; 
+    color: var(--white);
+    text-align: center;
+}
+ 
+.midias{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    margin-top: 30px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.midias img:hover {
+    transform: scale(1.05);
+    filter: contrast(10%);
+}
+/* footer - end*/
+
+
+/* MEDIA QUERIES */
+/* definindo os breakpoints para as resoluções de diferentes telas */
+
+/* Para larguras de até 1200px */
+
+@media (max-width: 1200px) {
+    
+    h2{
+        font-size: 32px;
+    } 
+
+    .menu{
+        /* display: none; */
+        /* opacity: 0; */
+        /* pointer-events: none; */
+        /* transform: translateX(100%); (L/E > L/D) */
+        transform: translateX(-100%); /*(L/D > L/E)*/
+        transition: ease-in;
+
+        background-color: var(--brand);
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 100px);
+    }
+
+    /* aula 08 - JS */
+    .menu-open{
+        /* display:block; */
+        /* opacity: 1; */
+        /* pointer-events: all; */
+        transform: translateX(0);
+    }
+
+    .menu a {
+        display: block;
+        margin-left: 0;
+        padding: 30px 15px 25px 15px;
+        border-bottom: 1px solid var(--primary);
+    }
+    /* ao clicar */
+    .menu a:active{
+        background-color: var(--contrast);
+    }
+
+    .menu a:hover {
+        color: var(--primary);
+    }
+
+    .bar{
+        width: 40px;
+        height: 3px;
+        background-color: var(--white);
+        margin-bottom: 3px; 
+        transition: 0.3s;
+        /* podemos usar o margin-bottom: ou a formatação do btn-menu; */
+    }
+
+    /* 1º filho */
+    .x .bar:first-child{
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    /* 2º filho */
+    .x .bar:nth-child(2){
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    /* 3º filho */
+    .x .bar:last-child{
+        transform: rotate(-45deg) translate(4px, -2px);
+    }
+
+    /* primeiro filho */
+    /* .x .bar:first-child{
+        background-color: #E0E34C;
+    } */
+
+    /* filho do meio */
+    /* .x .bar:nth-child(2){
+        background-color: #E0E34C;
+    } */
+
+    /* último filho */
+    /* .x .bar:last-child{
+        background-color: #E0E34C;
+    } */
+
+    /* .btn-menu{
+        display: flex;
+        flex-direction: column;
+        row-gap: 3px;
+    } */
+
+    .herosection .container{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .herosection{
+        height: 420px;
+    }
+
+    .herosection h1 .herosection h2{
+        font-size: 36px;
+    }
+
+    .herosection p{
+        font-size: 18px;
+    }
+  
+    .nossa-academia img{
+        width: 400px;
+    }
+}  
+/* Para larguras de até 1079px */
+@media (max-width: 1079px) {
+    .flex-cards{
+        flex-direction: column;
+        row-gap: 30px;
+        align-items: center;
+    }
+
+    .card{
+        max-width: 400px;
+    }
+
+    .fale-conosco{
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    .fale-conosco iframe{
+        width: 100%;
+    }
+}
+
+/* Para larguras de até 767px (tablets)*/
+@media (max-width: 767px) {
+    .nossa-academia{
+        flex-direction: column;
+        row-gap: 40px;
+    }
+
+    .nossa-academia img{
+        max-width: 100%;
+    }
+}
+
+/* Para larguras de até 580px*/
+@media (max-width: 580px) {
+    .faca-parte .image{
+        display: none;
+    }
+
+    .faca-parte .content{
+        width: 100%;
+    }
+}
+
